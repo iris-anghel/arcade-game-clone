@@ -1,0 +1,81 @@
+/* ---------- General style ---------- */
+
+* {
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
+body {
+    text-align: center;
+}
+
+/* ------------ Score panel style ---------------- */
+
+.score-panel {
+    width: 505px;
+    margin: 0 auto -4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.hearts img {
+    max-width: 30px;
+}
+
+/* ------------ Modals style ---------------- */
+
+/* Hidden Modal */
+
+.modal-hide {
+    display: none;
+}
+
+.modal {
+    font-size: 1.2em;
+    width: 650px;
+    height: 500px;
+    background-color: #9dcab6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 20px 0;
+}
+
+.gems {
+    max-width: 80px;
+}
+
+.characters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-game {
+    font-size: 1.2em;
+    padding: 10px 40px;
+    background: #9dcab6;
+    border: 5px solid #4717f6;
+}
+
+.play-game:hover {
+    cursor: pointer;
+    background: #a239ca;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0e0b16;
+}
+
+.game-won {
+    height: 250px;
+}

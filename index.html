@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Arcade Game</title>
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="score-panel">
+        <p class="score">Points: </p>
+        <ul class="hearts"></ul>
+    </div>
+
+    <div class="modal" id="modal">
+        <h2>Selina's adventures</h2>
+        <div class="characters">
+            <img src="images/Gem-Blue.png" alt="blue gem" class="gems">
+            <img src="images/Gem-Green.png" alt="green gem" class="gems">
+            <img src="images/char-cat-girl.png" alt="Selina">
+            <img src="images/Gem-Blue.png" alt="blue gem" class="gems">
+            <img src="images/Gem-Orange.png" alt="orange gem" class="gems">
+        </div>
+        <p>Selina can move using the up, down, right and left arrows.</p>
+        <p>Steal the gems, reach the water and avoid getting bitten by the bugs.</p>
+        <p>You have 3 chances. Have fun!</p>
+        <button id="play-game" class="play-game">Play</button>
+    </div>
+
+    <div id="win" class="game-won modal modal-hide">
+        <h2>Congratulations, you stealthy kitten!</h2>
+        <p>Would you like to try again?</p>
+        <button id="replay" class="play-game">Play again</button>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+</body>
+</html>
