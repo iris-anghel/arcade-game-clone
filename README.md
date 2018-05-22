@@ -5,7 +5,6 @@ This is a replica of the classic arcade game Frogger, built for the Google & Uda
 
 ## Getting Started
 - Clone or download this repository. Open the index.html file in the browser of your choice.
-- [Play here](https://rawgit.com/iris-anghel/arcade-game-clone/master/index.html)
 
 ## How to play
 - Choose a character
