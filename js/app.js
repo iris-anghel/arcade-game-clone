@@ -1,9 +1,4 @@
-// Points
-let displayScore = document.querySelector('.score');
-let score = 0;
-displayScore.innerText = 'Points: ' + score;
-
-//   -------------------------- ENEMIES ------------------------------
+//   -------------------------- ENEMIES ---------------------------
 
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here
@@ -35,8 +30,6 @@ Enemy.prototype.update = function(dt) {
        this.y < player.y + 60 &&
        this.y + 40 > player.y) {
         player.lives -= 1;
-//        gems = [];
-// the gems array should be empty if the player get bitten by bugs
 		player.reset(); // the position
         gems.reset();   //  their random position
     }
@@ -51,7 +44,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-//   -------------------------- LIVES/HEARTS ------------------------------
+//   -------------------------- LIVES/HEARTS -----------------------
 
 function displayLives(num) {
   const lives = document.querySelector('.hearts');
@@ -119,35 +112,35 @@ Player.prototype.reset = function() {
     this.y = 380;
 }
 
-//   -------------------------- GEMS ------------------------------
+// ----------------------- CHOOSE PLAYER -----------------------
 
-var Gem = function(x, y, sprite, value) {
-    this.sprite = sprite;
-    this.x = x || Math.floor(Math.random() * 400);
-    this.y = y || Math.floor(Math.random() * 250);
-    this.value = value;
+// event listeners for player selection - radio buttons
+
+document.getElementById('cat').addEventListener('click', function() {
+    choosePlayer(this.value);
+})
+
+document.getElementById('pink').addEventListener('click', function() {
+    choosePlayer(this.value);
+})
+
+document.getElementById('princess').addEventListener('click', function() {
+    choosePlayer(this.value);
+})
+
+const choosePlayer = (selection) => {
+    switch(selection){
+        case "cat":
+            player.sprite = 'images/char-cat-girl.png';
+            break;
+        case "pink":
+            player.sprite = 'images/char-pink-girl.png';
+            break;
+        case "princess":
+            player.sprite = 'images/char-princess-girl.png';
+            break;
+    }
 }
-
-Gem.prototype.update = function() {
-    gems.forEach(function(gem) {
-        if (player.x == gem.x && player.y == gem.y) {
-            // update score and pop one gem from array
-            score += gem.value;
-            displayScore.innerText = 'Points: ' + score;
-            gems.pop();
-        }
-    })
-}
-
-Gem.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
-
-Gem.prototype.reset = function() {
-    this.x = Math.floor(Math.random() * 350);
-    this.y = Math.floor(Math.random() * 250);
-}
-
 
 // --------------- Now instantiate your objects.
 
@@ -158,14 +151,8 @@ var enemy4 = new Enemy(-390, 140);
 var enemy5 = new Enemy(-490, 60);
 var enemy6 = new Enemy(-890, 230);
 
-const blueGem = new Gem(101, 215, 'images/Gem-Blue.png', 100);
-const greenGem = new Gem(404, 55, 'images/Gem-Green.png', 200);
-const orangeGem = new Gem(202, 135, 'images/Gem-Orange.png', 300);
-
 let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 var player = new Player(200, 380);
-let gems = [blueGem, greenGem, orangeGem];
-
 
 // This listens for key presses and sends the keys to your Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
@@ -188,7 +175,6 @@ gameStart.addEventListener('click', function() {
     document.getElementById('modal').classList.add('modal-hide');
     document.getElementById('overlay').classList.add('modal-hide');
 });
-
 
 // When the game is won, display the hidden modal with the congratulation message and play again button
 function gameWon() {

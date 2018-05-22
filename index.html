@@ -9,27 +9,32 @@
 <body>
 
     <div class="score-panel">
-        <p class="score">Points: </p>
         <ul class="hearts"></ul>
     </div>
 
     <div class="modal" id="modal">
-        <h2>Selina's adventures</h2>
+        <h2>Summer adventures</h2>
         <div class="characters">
-            <img src="images/Gem-Blue.png" alt="blue gem" class="gems">
-            <img src="images/Gem-Green.png" alt="green gem" class="gems">
-            <img src="images/char-cat-girl.png" alt="Selina">
-            <img src="images/Gem-Blue.png" alt="blue gem" class="gems">
-            <img src="images/Gem-Orange.png" alt="orange gem" class="gems">
+            <img src="images/char-cat-girl.png" alt="cat girl">
+            <img src="images/char-pink-girl.png" alt="pink girl">
+            <img src="images/char-princess-girl.png" alt="princess girl">
         </div>
-        <p>Selina can move using the up, down, right and left arrows.</p>
-        <p>Steal the gems, reach the water and avoid getting bitten by the bugs.</p>
-        <p>You have 3 chances. Have fun!</p>
+        <div>
+            <input type="radio" name="choice" id="cat" value="cat"><span class="character-radio-button">Selina</span>
+
+            <input type="radio" name="choice" id="pink" value="pink"><span class="character-radio-button">Iwasawa</span>
+
+            <input type="radio" name="choice" id="princess" value="princess"><span class="character-radio-button">Leia</span>
+        </div>
+
+        <p>Select a character. You start with 3 lives.</p>
+        <p>To move use the up, down, right and left arrows.</p>
+        <p>Reach the water and avoid getting bitten by the bugs.</p>
         <button id="play-game" class="play-game">Play</button>
     </div>
 
     <div id="win" class="game-won modal modal-hide">
-        <h2>Congratulations, you stealthy kitten!</h2>
+        <h2>Congratulations, you won!</h2>
         <p>Would you like to try again?</p>
         <button id="replay" class="play-game">Play again</button>
     </div>

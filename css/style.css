@@ -14,9 +14,12 @@ body {
 .score-panel {
     width: 505px;
     margin: 0 auto -4rem;
+/*
     display: flex;
     justify-content: space-between;
     align-items: center;
+*/
+    text-align: right;
     font-size: 1.2em;
 }
 
@@ -35,7 +38,7 @@ body {
 .modal {
     font-size: 1.2em;
     width: 650px;
-    height: 500px;
+    height: 550px;
     background-color: #9dcab6;
     position: absolute;
     top: 50%;
@@ -45,14 +48,16 @@ body {
     padding: 20px 0;
 }
 
-.gems {
-    max-width: 80px;
-}
-
+/*
 .characters {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+*/
+
+.character-radio-button {
+    padding-right: 20px;
 }
 
 .play-game {
