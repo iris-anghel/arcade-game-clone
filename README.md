@@ -1,12 +1,11 @@
 # Arcade Game clone
 
 ## Description
-This is a replica of the classic arcade game Frogger.
-It is part of the Front-End Development Nanodegree program. 
+This is a replica of the classic arcade game Frogger, built for the Google & Udacity Front-End Web Development Nanodegree program.
 
-## Run game
-- Clone or download the repository. open index.html in the browser of your choise
-- [Play here]()
+## Getting Started
+- Clone or download this repository. Open the index.html file in the browser of your choice.
+- [Play here](https://rawgit.com/iris-anghel/arcade-game-clone/master/index.html)
 
 ## How to play
 - Choose a character
