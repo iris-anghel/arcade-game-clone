@@ -7,7 +7,6 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    // change this                !!!!!!!!!!!!!!!!!!!!!!!!!!!
     this.speed = Math.floor((Math.random() * 200) + 100);
 };
 
@@ -19,7 +18,7 @@ Enemy.prototype.update = function(dt) {
 
     if(this.x < 505) {
         this.x += (this.speed * dt);
-//        is this ok ????????               !!!!!!!!!!!!!!!!!!!1
+//        is this ok ????????
         this.x = Math.floor(this.x);
     } else {
         this.x = -90;
@@ -31,7 +30,6 @@ Enemy.prototype.update = function(dt) {
        this.y + 40 > player.y) {
         player.lives -= 1;
 		player.reset(); // the position
-        gems.reset();   //  their random position
     }
 
     if(player.lives === 0) {
