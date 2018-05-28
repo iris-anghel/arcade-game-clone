@@ -1,3 +1,5 @@
+'use strict';
+
 //   -------------------------- ENEMIES ---------------------------
 
 var Enemy = function(x, y) {
@@ -18,40 +20,33 @@ Enemy.prototype.update = function(dt) {
 
     if(this.x < 505) {
         this.x += (this.speed * dt);
-//        is this ok ????????
         this.x = Math.floor(this.x);
     } else {
         this.x = -90;
     }
-    // if the player and the enemies collide
-    if(this.x < player.x + 30 &&
-       this.x + 60 > player.x &&
-       this.y < player.y + 60 &&
-       this.y + 40 > player.y) {
-        player.lives -= 1;
-		player.reset(); // the position
-    }
-
-    if(player.lives === 0) {
-        location.reload();  // is there a better way????
-    }
-};
+     checkCollisions();
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-//   -------------------------- LIVES/HEARTS -----------------------
-
-function displayLives(num) {
-  const lives = document.querySelector('.hearts');
-  const showHearts = '<img src="images/Heart.png">';
-  lives.innerHTML = "";
-
-  for (let i = 0; i < num; i++) {
-    lives.innerHTML += showHearts;
-  }
+// check collisions, moved outside prototypes
+// based on https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+function checkCollisions() {
+    for(let i = 0 ; i < allEnemies.length; i++) {
+        if(allEnemies[i].x < player.x + 30 &&
+            allEnemies[i].x + 60 > player.x &&
+            allEnemies[i].y < player.y + 60 &&
+            allEnemies[i].y + 40 > player.y) {
+            player.lives -= 1;
+            player.reset(); // only the position
+            if(player.lives === 0) {
+                location.reload();
+            }
+        }
+    }
 }
 
 //   -------------------------- PLAYER ------------------------------
@@ -65,8 +60,6 @@ var Player = function(x, y) {
 }
 
 Player.prototype.update = function() {
-    displayLives(this.lives);
-
     // prevent player from moving beyond canvas
     if (this.y > 380) {
         this.y = 380;
@@ -78,8 +71,8 @@ Player.prototype.update = function() {
         this.x = 0;
     }
 
-    // if he reaches the water and wins game
-    if(player.y < 20) {
+    // if the player reaches the water and wins game
+    if(this.y < 20) {
         gameWon();
     }
 }
@@ -110,6 +103,49 @@ Player.prototype.reset = function() {
     this.y = 380;
 }
 
+// --------------- Now instantiate your objects.
+
+var enemy1 = new Enemy(-90, 60);
+var enemy2 = new Enemy(-190, 140);
+var enemy3 = new Enemy(-290, 230);
+var enemy4 = new Enemy(-390, 140);
+var enemy5 = new Enemy(-490, 60);
+var enemy6 = new Enemy(-890, 230);
+
+let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
+var player = new Player(200, 380);
+
+// This listens for key presses and sends the keys to your Player.handleInput() method.
+document.addEventListener('keyup', function(e) {
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+    };
+
+    player.handleInput(allowedKeys[e.keyCode]);
+});
+
+//   -------------------------- LIVES/HEARTS -----------------------
+
+function displayLives(num) {
+    const lives = document.querySelector('.hearts');
+    const showHearts = '<img src="images/Heart.png">';
+    lives.innerHTML = "";
+
+    for (let i = 0; i < num; i++) {
+        lives.innerHTML += showHearts;
+    }
+}
+
+//function endGame () {
+//    if(player.lives === 0) {
+//        location.reload();
+//    }
+//}
+// moved inside the checkCollisions function
+
 // ----------------------- CHOOSE PLAYER -----------------------
 
 // event listeners for player selection - radio buttons
@@ -139,31 +175,6 @@ const choosePlayer = (selection) => {
             break;
     }
 }
-
-// --------------- Now instantiate your objects.
-
-var enemy1 = new Enemy(-90, 60);
-var enemy2 = new Enemy(-190, 140);
-var enemy3 = new Enemy(-290, 230);
-var enemy4 = new Enemy(-390, 140);
-var enemy5 = new Enemy(-490, 60);
-var enemy6 = new Enemy(-890, 230);
-
-let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
-var player = new Player(200, 380);
-
-// This listens for key presses and sends the keys to your Player.handleInput() method.
-document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
-
-    player.handleInput(allowedKeys[e.keyCode]);
-});
-
 //  --------------- Start game modal
 
 const gameStart = document.getElementById('play-game');
