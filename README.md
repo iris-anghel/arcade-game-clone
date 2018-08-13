@@ -1,12 +1,17 @@
 # Arcade Game clone
 
+Project 5 - [Front-End Web Developer Nano Degree with Udacity & Google](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001)
+
 ## Description
-This is a replica of the classic arcade game Frogger, built for the Google & Udacity Front-End Web Development Nanodegree program.
+
+This is a replica of the classic arcade game Frogger.
 
 ## Getting Started
-- Clone or download this repository. Open the index.html file in the browser of your choice.
+* Clone or download this repository. 
+* Open the `index.html` file in the browser of your choice.
 
 ## How to play
+
 - Choose a character
 - Move the player using the up, right, down and left keyboard arrows
 - You start with three lives
@@ -15,6 +20,7 @@ This is a replica of the classic arcade game Frogger, built for the Google & Uda
 - Game ends when you reach the water or lose all lives
 
 ## Dependencies
+
 - HTML5 Canvas
 - Object-Oriented JavaScript
 - [Udacity arcade game starter code](https://github.com/udacity/frontend-nanodegree-arcade-game)
