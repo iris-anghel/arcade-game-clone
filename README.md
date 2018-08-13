@@ -1,6 +1,6 @@
 # Arcade Game clone
 
-Project 5 - [Front-End Web Developer Nano Degree with Udacity & Google](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001)
+Project 4 - [Front-End Web Developer Nano Degree with Udacity & Google](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001)
 
 ## Description
 
